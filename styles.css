@@ -132,3 +132,19 @@ details:not([open]) div {
   font-style: italic;
   color: rgb(147, 147, 147);
 }
+
+.content>section.about-me article section {
+  max-width: 60vw;
+  margin-bottom: 20px;
+}
+
+.content>section.about-me article section p {
+  font-size: 14px;
+}
+
+.content>section.about-me article section h2 {
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+
