@@ -1,9 +1,52 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+details { margin-bottom: 0.25em; line-height: 1.25; }
+
 html {
   font-family: Arial;
   font-size: 16px;
   scroll-behavior: smooth;
+}
+
+summary::-webkit-details-marker {
+  display: none
+}
+
+summary:focus {
+  outline: none;
+}
+
+@keyframes invisiblyGrowFontSize {
+	0% {
+    font-size: 0;
+    opacity: 0;
+	}
+	100% {
+    font-size: 1em;
+    opacity: 0;
+	}
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+	100% {
+		opacity: 1;
+	}
+}
+
+details[open] div {
+	animation-name: invisiblyGrowFontSize, fadeIn;
+  animation-duration: 500ms, 200ms;
+  animation-delay: 0ms, 500ms;
+}
+
+details:not([open]) div {
+	animation-name: fadeIn, invisiblyGrowFontSize;
+  animation-duration: 200ms, 500ms;
+  animation-delay: 500ms, 0ms;
+  animation-direction: reverse;
 }
 
 .sidebar {
@@ -64,6 +107,23 @@ html {
 
 .content>section article em {
   font-weight: bold;
+}
+
+.content>section.skills article ul {
+  padding-inline-start: 0;
+}
+
+.content>section.skills article ul li {
+  list-style: none;
+  line-height: 1.2em;
+}
+
+.content>section.skills article ul li summary {
+  cursor: pointer;
+}
+
+.content>section.skills article ul li:not(:last-child) {
+    margin-bottom: 5px;
 }
 
 .content>section article cite {
